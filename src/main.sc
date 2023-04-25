@@ -53,7 +53,8 @@ theme: /
             "Диапазон чисел в ответах" -> /AnswerRange
             
     state: OperationType
-        q!: tmp
+        q!: сколько будет $NUMBER::x плюс $NUMBER::y
+        q!:  * тип операции $TMP *
         a: Вы сказали: {{$parseTree.text}}
     
     state: NoMarkupText
