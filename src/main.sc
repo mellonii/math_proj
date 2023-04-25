@@ -34,11 +34,27 @@ theme: /
             $jsapi.startSession();
             $reactions.answer($Answers["Start"]);
         buttons:
-            "Текст без разметки" -> /NoMarkupText
-            "Текст с разметкой синтеза речи" -> /MarkupText
-            "Звуки из библиотеки" -> /LibSound
-            "Пользовательские звуки" -> /CustomSound
+            #"Текст без разметки" -> /NoMarkupText
+            #"Текст с разметкой синтеза речи" -> /MarkupText
+            #"Звуки из библиотеки" -> /LibSound
+            #"Пользовательские звуки" -> /CustomSound
+            "Начать игру" -> /Example
+            "Выбрать режим" -> /Options
            
+    state: Options
+        q!: * (настройк*/настрои*/режим*) *
+        q!: выбрать режим
+        script: 
+            $reactions.answer($Answers["Options"]);
+        buttons:
+            "Типы операций" -> /OperationType
+            "Количество операций" -> /OperationCount
+            "Диапазон чисел в примерах" -> /ExampleRange
+            "Диапазон чисел в ответах" -> /AnswerRange
+            
+    state: OperationType
+        a: Вы сказали: {{$parseTree.text}}
+    
     state: NoMarkupText
         q!: * (без разметк*/текст) *
         q!: без
@@ -132,7 +148,13 @@ theme: /
             "Текст без разметки" -> /NoMarkupText
             "Текст с разметкой синтеза речи" -> /MarkupText
             "Звуки из библиотеки" -> /LibSound
-                
+
+    state: Fallback
+        event!: noMatch
+        if: $parseTree.value == "trueValue"
+            a: Повторяю.
+        a: Вы сказали: {{$parseTree.text}}
+            
     state: CatchAll
         q!: *
         event!: noMatch
