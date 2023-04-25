@@ -53,8 +53,7 @@ theme: /
             "Диапазон чисел в ответах" -> /AnswerRange
             
     state: OperationType
-        if: $parseTree.value == "trueValue"
-            a: Повторяю.
+        q!: tmp
         a: Вы сказали: {{$parseTree.text}}
     
     state: NoMarkupText
