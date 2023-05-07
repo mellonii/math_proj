@@ -1,11 +1,17 @@
 #require: slotfilling/slotFilling.sc
   #module = sys.zb-common
   
+require: common.js
+  module = sys.zb-common
+  
 # Подключение javascript обработчиков
 #require: js/getters.js
 
 # Подключение сценарных файлов
 #require: sc/addNote.sc
+
+require: dicts/answers.yaml
+  var = $Answers
 
 patterns:
     $AnyText = $nonEmptyGarbage
