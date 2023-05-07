@@ -53,16 +53,7 @@ theme: /
             "Диапазон чисел в ответах" -> /AnswerRange
             
     state: OperationType
-        q!: *(тип опер*/тип*)*
-        q!: тип операций
-        a: Нынешние настройки: пам пам пам 
-        script: 
-            $reactions.answer($Answers["OperationType"]);
-        buttons:
-            "Добавить сложение" -> #
-            "Добавить вычитание" -> #
-            "Добавить умножение" -> #
-            "Добавить деление" -> #
+        a: ммм
     
     state: NoMarkupText
         q!: * (без разметк*/текст) *
