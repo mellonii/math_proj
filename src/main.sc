@@ -2,15 +2,10 @@ require: slotfilling/slotFilling.sc
   module = sys.zb-common
   
 # Подключение javascript обработчиков
-require: js/getters.js
-require: js/reply.js
-require: js/actions.js
+#require: js/getters.js
 
 # Подключение сценарных файлов
-require: sc/addNote.sc
-require: sc/doNote.sc
-require: sc/deleteNote.sc
-require: sc/noteDone.sc
+#require: sc/addNote.sc
 
 patterns:
     $AnyText = $nonEmptyGarbage
